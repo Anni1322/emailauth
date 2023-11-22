@@ -46,8 +46,8 @@ const userController = require('../controllers/userController');
 user_route.get('/register',auth.isLogout,userController.loadRegister);
 user_route.post('/register',upload.single('image'),userController.insertUser);
 
-// user_route.get('/verify',userController.verifymail);
-// user_route.get('/loginverify',userController.verifyLogin);
+user_route.get('/verify',userController.verifymail);
+user_route.get('/loginverify',userController.verifyLogin);
 
 user_route.get('/',auth.isLogout, userController.loginload);
 user_route.get('/login',auth.isLogout, userController.loginload);
@@ -65,7 +65,7 @@ user_route.get('/forget-password',auth.isLogout,userController.fogetPasswordLoad
 user_route.post('/forget-password',userController.resetPassword);
 
 user_route.get('/verification',userController.verificationLoad);
-// user_route.post('/verification',userController.sentverificationLink);
+user_route.post('/verification',userController.sentverificationLink);
 
 
 user_route.get('/edit',auth.isLogin,userController.editLoad);

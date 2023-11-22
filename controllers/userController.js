@@ -18,68 +18,68 @@ const securePassword = async(password)=>{
 }
 
 // for send mail funcion
-// const sendvarifyMail = async(name, email, user_id)=>{
+const sendvarifyMail = async(name, email, user_id)=>{
 
-//     try{
-//         const transporter =  nodemailer.createTransport({
-//             host:'smtp.gmail.com',
-//             port:587,
-//             secure:false,
-//             auth:{
-//                 user:config.emailUser,
-//                 pass:config.emailPassword
-//             }
-//          });
-//         const mailOption = {
-//             from:config.emailUser,
-//             to:email,
-//             subject:'for verification mail',
-//             html:'<p> hi '+name+', Please click here to <a href="http://localhost:3000/verify?id='+user_id+'">Verify</a> Your mail.</p>',
-//         };
-//             transporter.sendMail(mailOption, function(error, info){
-//                 if(error){
-//                     console.log(error);
-//                 }else{
-//                     console.log("email has been sent:-",info.response);
-//                 }
-//         })
+    try{
+        const transporter =  nodemailer.createTransport({
+            host:'smtp.gmail.com',
+            port:587,
+            secure:false,
+            auth:{
+                user:config.emailUser,
+                pass:config.emailPassword
+            }
+         });
+        const mailOption = {
+            from:config.emailUser,
+            to:email,
+            subject:'for verification mail',
+            html:'<p> hi '+name+', Please click here to <a href="http://localhost:3000/verify?id='+user_id+'">Verify</a> Your mail.</p>',
+        };
+            transporter.sendMail(mailOption, function(error, info){
+                if(error){
+                    console.log(error);
+                }else{
+                    console.log("email has been sent:-",info.response);
+                }
+        })
      
-//      }catch(error){
-//          console.log(error.message)
-//      }
-// }
+     }catch(error){
+         console.log(error.message)
+     }
+}
 
 // 
-// const sendResetPasswordMail = async(name, email, token)=>{
+const sendResetPasswordMail = async(name, email, token)=>{
 
-//     try{
-//         const transporter =  nodemailer.createTransport({
-//             host:'smtp.gmail.com',
-//             port:587,
-//             secure:false,
-//             auth:{
-//                 user:config.emailUser,
-//                 pass:config.emailPassword
-//             }
-//          });
-//         const mailOption = {
-//             from:config.emailUser,
-//             to:email,
-//             subject:'For Reset Password',
-//             html:'<p> hi '+name+', Please click here to <a href="http://localhost:3000/forget-password?token='+token+'">Reset</a> Your Password.</p>',
-//         };
-//             transporter.sendMail(mailOption, function(error, info){
-//                 if(error){
-//                     console.log(error);
-//                 }else{
-//                     console.log("email has been sent:-",info.response);
-//                 }
-//             })
+    try{
+        const transporter =  nodemailer.createTransport({
+            host:'smtp.gmail.com',
+            port:587,
+            secure:false,
+            auth:{
+                user:config.emailUser,
+                pass:config.emailPassword
+            }
+         });
+        const mailOption = {
+            from:config.emailUser,
+            to:email,
+            subject:'For Reset Password',
+            html:'<p> hi '+name+', Please click here to <a href="http://localhost:3000/forget-password?token='+token+'">Reset</a> Your Password.</p>',
+        };
+            transporter.sendMail(mailOption, function(error, info){
+                if(error){
+                    console.log(error);
+                }else{
+                    console.log("email has been sent:-",info.response);
+                }
+            })
      
-//      }catch(error){
-//          console.log(error.message)
-//      }
-// }
+     }catch(error){
+         console.log(error.message)
+     }
+}
 
 
 const loadRegister = async(req, res)=>{
